@@ -57,5 +57,11 @@ public class Util {
         return result.toString();
     }
 
+    // A utility function to print an array
+    static void printArray(int arr[]) {
+        for (int value : arr) System.out.print(value + " ");
+        System.out.println();
+    }
+
 
 }

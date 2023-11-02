@@ -37,7 +37,7 @@ public class Radixsort {
     }
 
     // The main function to implement radix sort using counting sort
-    public static void radixSort(int arr[]) {
+    static void radixSort(int arr[]) {
         // Find the maximum number to know the number of digits
         int max = getMax(arr);
 
