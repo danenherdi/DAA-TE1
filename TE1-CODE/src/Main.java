@@ -3,51 +3,37 @@ public class Main {
     public static void doSort(int[] arr){
         int[] copiedArr = new int[arr.length];
         System.arraycopy(arr, 0, copiedArr, 0, arr.length);
+        doRadixSort(arr);
+        doPeekSort(copiedArr);
+    }
 
-        // Radix sort performance
-        System.out.println("Array sebelum Radix Sort");
-        System.out.println("Array (Size " + arr.length + "): " + Util.arrayToString(arr, 100));
-        System.out.println();
+    // Radix sort performance
+    public static void doRadixSort(int[] arr){
 
-        long initialMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         long radixSortStartTime = System.currentTimeMillis();
         Radixsort.radixSort(arr);
         long radixSortEndTime = System.currentTimeMillis();
-        long finalMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        long memoryUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         long radixSortResultTime = radixSortEndTime - radixSortStartTime;
-        long memoryUsed = finalMemory - initialMemory;
 
-        System.out.println("Array setelah Radix Sort");
-        System.out.println("Array (Size " + arr.length + "): " + Util.arrayToString(arr, 100));
-        System.out.println();
-
-        System.out.println("Memory used by the sorting algorithm: " + memoryUsed + " bytes");
+        System.out.println("Penggunaan memori Radix Sort: " + memoryUsed + " bytes");
         System.out.println("Waktu eksekusi Radix Sort: " + radixSortResultTime + " ms");
         System.out.println();
+    }
 
-
-        // Peek sort performance
-        System.out.println("Array sebelum Peek Sort");
-        System.out.println("Array (Size " + copiedArr.length + "): " + Util.arrayToString(copiedArr, 100));
-        System.out.println();
-
-        long initialMemory2 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+    // Peek sort performance
+    public static void doPeekSort(int[] arr){
         long peekSortStartTime = System.currentTimeMillis();
-        Peeksort.peekSort(copiedArr, 0, copiedArr.length-1, 0, copiedArr.length-1, new int[copiedArr.length]);
+        Peeksort.peekSort(arr, 0, arr.length-1, 0, arr.length-1, new int[arr.length]);
         long peekSortEndTime = System.currentTimeMillis();
-        long finalMemory2 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        long memoryUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         long peekSortResultTime = peekSortEndTime - peekSortStartTime;
-        long memoryUsed2 = finalMemory2 - initialMemory2;
 
-
-        System.out.println("Array setelah Peek Sort");
-        System.out.println("Array (Size " + copiedArr.length + "): " + Util.arrayToString(copiedArr, 100));
-        System.out.println();
-
-        System.out.println("Memory used by the sorting algorithm: " + memoryUsed2 + " bytes");
+        System.out.println("Penggunaan memori Peek Sort: " + memoryUsed + " bytes");
         System.out.println("Waktu eksekusi Peek Sort: " + peekSortResultTime + " ms");
         System.out.println();
     }
+
     public static void main(String[] args) {
         // create sorted array
         int[] sortedArr1000 = Util.createSortedData(1000);
@@ -64,38 +50,42 @@ public class Main {
         int[] reversedArr10000 = Util.createReversedList(10000);
         int[] reversedArr100000 = Util.createReversedList(100000);
 
-
-        System.out.println("Data 1000 Angka Sorted");
+        System.out.println("==================================================");
+        System.out.println("Data Array Sorted");
+        System.out.println("==================================================");
+        System.out.println("Data 1000 Angka");
         doSort(sortedArr1000);
         System.out.println();
-        System.out.println("Data 10000 Angka Sorted");
+        System.out.println("Data 10000 Angka");
         doSort(sortedArr10000);
         System.out.println();
-        System.out.println("Data 100000 Angka Sorted");
+        System.out.println("Data 100000 Angka");
         doSort(sortedArr100000);
         System.out.println();
 
-        System.out.println("==================================================\n");
-
-        System.out.println("Data 1000 Angka Random");
+        System.out.println("==================================================");
+        System.out.println("Data Array Random");
+        System.out.println("==================================================");
+        System.out.println("Data 1000 Angka");
         doSort(randomArr1000);
         System.out.println();
-        System.out.println("Data 10000 Angka Random");
+        System.out.println("Data 10000 Angka");
         doSort(randomArr10000);
         System.out.println();
-        System.out.println("Data 100000 Angka Random");
+        System.out.println("Data 100000 Angka");
         doSort(randomArr100000);
         System.out.println();
 
-        System.out.println("==================================================\n");
-
-        System.out.println("Data 1000 Angka Reversed");
+        System.out.println("==================================================");
+        System.out.println("Data Array Reversed");
+        System.out.println("==================================================");
+        System.out.println("Data 1000 Angka");
         doSort(reversedArr1000);
         System.out.println();
-        System.out.println("Data 10000 Angka Reversed");
+        System.out.println("Data 10000 Angka");
         doSort(reversedArr10000);
         System.out.println();
-        System.out.println("Data 100000 Angka Reversed");
+        System.out.println("Data 100000 Angka");
         doSort(reversedArr100000);
 
     }
