@@ -9,7 +9,6 @@ public class Main {
 
     // Radix sort performance
     public static void doRadixSort(int[] arr){
-
         long radixSortStartTime = System.currentTimeMillis();
         Radixsort.radixSort(arr);
         long radixSortEndTime = System.currentTimeMillis();

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Util {
-    // Membuat array yang terurut
+    // Method untuk membuat array data terurut
     static int[] createSortedData(int size) {
         int[] sortedArray = new int[size];
         for (int i = 0; i < size; i++) {
@@ -10,7 +10,7 @@ public class Util {
         return sortedArray;
     }
 
-    // Membuat array dengan urutan acak
+    // Method untuk membuat array data acak
     static int[] createRandomData(int size) {
         int[] randomArray = new int[size];
         for (int i = 0; i < size; i++) {
@@ -20,7 +20,7 @@ public class Util {
         return randomArray;
     }
 
-    // Membuat array yang terbalik
+    // Method untuk membuat array data reversed
     static int[] createReversedList(int size) {
         int[] reversedArray = new int[size];
         for (int i = 0; i < size; i++) {
@@ -29,7 +29,7 @@ public class Util {
         return reversedArray;
     }
 
-    // Mengacak elemen array
+    // Method untuk mengacak elemen secara manual
     private static void shuffleArray(int[] array) {
         Random rand = new Random(System.currentTimeMillis());
         for (int i = array.length - 1; i > 0; i--) {
@@ -39,29 +39,4 @@ public class Util {
             array[i] = temp;
         }
     }
-
-    // Konversi array menjadi string dengan batasan jumlah elemen yang ditampilkan
-    static String arrayToString(int[] array, int limit) {
-        StringBuilder result = new StringBuilder("[");
-        int count = Math.min(array.length, limit);
-        for (int i = 0; i < count; i++) {
-            result.append(array[i]);
-            if (i < count - 1) {
-                result.append(", ");
-            }
-        }
-        if (array.length > limit) {
-            result.append(", ...");
-        }
-        result.append("]");
-        return result.toString();
-    }
-
-    // A utility function to print an array
-    static void printArray(int arr[]) {
-        for (int value : arr) System.out.print(value + " ");
-        System.out.println();
-    }
-
-
 }
